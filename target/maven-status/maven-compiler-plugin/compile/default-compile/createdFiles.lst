@@ -1,0 +1,9 @@
+dao\LivroDAO.class
+controle\LoginBean.class
+dao\LivroDAOImpl.class
+dao\UsuarioDAO.class
+dao\UsuarioDAOImpl.class
+entidade\Usuario.class
+util\JpaUtil.class
+entidade\Livro.class
+TesteConexao.class

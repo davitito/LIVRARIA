@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<h:form>
+			
+		<!-- Listar Livros -->
+		<p:dialog header="Lista de Livros" modal="true" visible="true" widgetVar="listarLivro">
+			<p:panelGrid columns="1">
+				<p:outputLabel value="Lista Livros:" />
+									
+				<p:dataTable var="LIVRO" value="#{LIVRO.livro}">
+							    
+					<p:column headerText="Nome">
+				        <h:outputText value="#{LIVRO.livro.nome}" />
+				    </p:column>
+				    
+				    <p:column headerText="Editora">
+				        <h:outputText value="#{LIVRO.livro.editora}" />
+				    </p:column>
+					
+					<p:column headerText="Genero">
+				        <h:outputText value="#{LIVRO.livro.genero}" />
+				    </p:column>
+				    
+				    <p:column headerText="Edicao">
+				        <h:outputText value="#{LIVRO.livro.edicao}" />
+				    </p:column>
+				    
+				    <p:column headerText="Autor">
+				        <h:outputText value="#{LIVRO.livro.autor}" />
+				    </p:column>
+		
+				</p:dataTable>
+							
+				<p:commandButton value="Criar Livro" onclick="PF('criarLivro').show();" />
+				<p:commandButton value="Editar Livro" onclick="PF('EditarLivro').show();" />
+				<!-- disabled="true" -->
+			</p:panelGrid>
+		</p:dialog>
+		
+		<!-- Criar livros -->
+		<p:dialog header="Novo Livro" modal="true" visible="false" widgetVar="criarLivro">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome: " />
+				<p:inputText value="#{LoginBean.livro.nome}" />
+				<p:outputLabel value="Editora: " />
+				<p:inputText value="#{LoginBean.livro.editora}" />
+				<p:outputLabel value="Edição: " />
+				<p:inputText value="#{LoginBean.livro.edicao}" />
+				<p:outputLabel value="Gênero: " />
+				<p:inputText value="#{LoginBean.livro.genero}" />
+				<p:outputLabel value="Autor: " />
+				<p:inputText value="#{LoginBean.livro.autor}" />
+				<p:commandButton value="Salvar" update="@form"	actionListener="#{LoginBean.criarLivro}" />
+			</p:panelGrid>
+		</p:dialog>
+
+		<!-- Editar livros -->
+		<p:dialog header="Editar Livro" modal="true" visible="false" widgetVar="editarLivro">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome: " />
+				<p:inputText value="#{LoginBean.livro.nome}" />
+				<p:outputLabel value="Editora: " />
+				<p:inputText value="#{LoginBean.livro.editora}" />
+				<p:outputLabel value="Edição: " />
+				<p:inputText value="#{LoginBean.livro.genero}" />
+				<p:outputLabel value="Gênero: " />
+				<p:inputText value="#{LoginBean.livro.genero}" />
+				<p:outputLabel value="Autor: " />
+				<p:inputText value="#{LoginBean.livro.autor}" />
+				<p:commandButton value="Editar" update="@form"	actionListener="#{LoginBean.editarLivro}" />
+			</p:panelGrid>
+		</p:dialog>	
+		
+			
+	</h:form>
+</h:body>
+</html>
